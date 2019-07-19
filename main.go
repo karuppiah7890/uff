@@ -11,6 +11,7 @@ func main() {
 	app := &cli.App{
 		Name: "uff",
 		Usage: "update (go)fish food",
+		UsageText: "uff <food-file> <version>",
 		Action: func(c *cli.Context) error {
 			fmt.Println("upgrading fish food ...")
 			return nil
