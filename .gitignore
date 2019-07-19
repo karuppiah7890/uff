@@ -1,2 +1,5 @@
 # ignore intellij files
 .idea/
+
+# build output files
+out/
