@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	"gopkg.in/urfave/cli.v2"
@@ -32,10 +33,14 @@ func main() {
 				fmt.Printf("fish food %s is already in version %s. nothing to upgrade!\n", foodFile, version)
 				return nil
 			}
+
 			fmt.Printf("upgrading fish food %s to version %s ...\n", foodFile, version)
 			return nil
 		},
 	}
 
-	app.Run(os.Args)
+	err := app.Run(os.Args)
+	if err != nil {
+		log.Fatalf("error occurred while running the command: %v", err)
+	}
 }
