@@ -14,12 +14,20 @@ func main() {
 		UsageText: "uff <food-file> <version>",
 		Action: func(c *cli.Context) error {
 			if c.NArg() != 2 {
-				fmt.Println("pass exactly two arguments\n")
+				fmt.Printf("pass exactly two arguments\n\n")
 				cli.ShowAppHelpAndExit(c, 1)
 				return nil
 			}
+
 			foodFile := c.Args().Get(0)
 			version := c.Args().Get(1)
+
+			food, err := getFood(foodFile, version)
+			if err != nil {
+				return cli.Exit(fmt.Errorf("error occured while getting food: %v", err), 1)
+			}
+
+			fmt.Printf("existing food version: %v\n", food.Version)
 			fmt.Printf("upgrading fish food %s to version %s ...\n", foodFile, version)
 			return nil
 		},
