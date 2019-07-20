@@ -19,6 +19,8 @@ github.com/fishworks/gofish
 github.com/fishworks/gofish/pkg/osutil
 # github.com/konsorten/go-windows-terminal-sequences v1.0.1
 github.com/konsorten/go-windows-terminal-sequences
+# github.com/kyokomi/emoji v2.1.0+incompatible
+github.com/kyokomi/emoji
 # github.com/mitchellh/mapstructure v1.1.2
 github.com/mitchellh/mapstructure
 # github.com/opencontainers/go-digest v1.0.0-rc1

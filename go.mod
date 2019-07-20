@@ -16,6 +16,7 @@ require (
 	github.com/fishworks/gofish v0.10.0
 	github.com/google/go-cmp v0.3.0 // indirect
 	github.com/gotestyourself/gotestyourself v2.2.0+incompatible // indirect
+	github.com/kyokomi/emoji v2.1.0+incompatible
 	github.com/mitchellh/mapstructure v1.1.2 // indirect
 	github.com/opencontainers/go-digest v1.0.0-rc1 // indirect
 	github.com/opencontainers/image-spec v1.0.1 // indirect

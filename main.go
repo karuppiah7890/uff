@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/kyokomi/emoji"
 	"gopkg.in/urfave/cli.v2"
 )
 
@@ -46,6 +47,8 @@ func main() {
 				return cli.Exit(fmt.Errorf("error while upgrading food file: %v", err), 1)
 			}
 
+			done := emoji.Sprint("done! :tropical_fish:")
+			fmt.Println(done)
 			return nil
 		},
 	}
