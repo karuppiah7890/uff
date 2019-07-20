@@ -28,13 +28,24 @@ func main() {
 				return cli.Exit(fmt.Errorf("error occured while getting food: %v", err), 1)
 			}
 
-			fmt.Printf("existing food version: %v\n", food.Version)
-			if food.Version == version {
+			existingVersion := food.Version
+			fmt.Printf("existing food version: %v\n", existingVersion)
+			if existingVersion == version {
 				fmt.Printf("fish food %s is already in version %s. nothing to upgrade!\n", foodFile, version)
 				return nil
 			}
-
 			fmt.Printf("upgrading fish food %s to version %s ...\n", foodFile, version)
+
+			newFood, err := findUpgradedFood(foodFile, existingVersion, version)
+			if err != nil {
+				return cli.Exit(fmt.Errorf("error while finding upgraded food: %v", err), 1)
+			}
+
+			err = upgradeFoodFile(foodFile, food, newFood)
+			if err != nil {
+				return cli.Exit(fmt.Errorf("error while upgrading food file: %v", err), 1)
+			}
+
 			return nil
 		},
 	}

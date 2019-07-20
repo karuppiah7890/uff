@@ -21,9 +21,12 @@ require (
 	github.com/opencontainers/image-spec v1.0.1 // indirect
 	github.com/opencontainers/runc v0.1.1 // indirect
 	github.com/opencontainers/selinux v1.2.2 // indirect
+	github.com/spf13/afero v1.2.2
 	github.com/yuin/gluamapper v0.0.0-20150323120927-d836955830e7
 	github.com/yuin/gopher-lua v0.0.0-20190514113301-1cd887cd7036
 	golang.org/x/net v0.0.0-20190628185345-da137c7871d7 // indirect
+	golang.org/x/sys v0.0.0-20190712062909-fae7ac547cb7 // indirect
+	golang.org/x/text v0.3.2 // indirect
 	gopkg.in/urfave/cli.v2 v2.0.0-20180128182452-d3ae77c26ac8
 	gotest.tools v2.2.0+incompatible // indirect
 )
