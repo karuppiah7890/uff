@@ -22,7 +22,7 @@ func main() {
 			foodFile := c.Args().Get(0)
 			version := c.Args().Get(1)
 
-			food, err := getFood(foodFile, version)
+			food, err := getFood(foodFile)
 			if err != nil {
 				return cli.Exit(fmt.Errorf("error occured while getting food: %v", err), 1)
 			}

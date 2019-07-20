@@ -6,7 +6,7 @@ import (
 	lua "github.com/yuin/gopher-lua"
 )
 
-func getFood(foodFile string, version string) (*gofish.Food, error) {
+func getFood(foodFile string) (*gofish.Food, error) {
 	l := lua.NewState()
 	defer l.Close()
 	if err := l.DoFile(foodFile); err != nil {
