@@ -8,6 +8,7 @@ import (
 	"github.com/yuin/gluamapper"
 	lua "github.com/yuin/gopher-lua"
 	"io"
+	"io/ioutil"
 	"net/http"
 	"strings"
 )
@@ -48,6 +49,12 @@ func findUpgradedFood(foodFile, existingVersion, version string) (*gofish.Food, 
 		resp, err := http.Get(foodPackage.URL)
 		if err != nil {
 			return nil, fmt.Errorf("error while downloading package to calculate shasum: %v", err)
+		}
+
+		if resp.StatusCode >= 400 {
+			respBody, _ := ioutil.ReadAll(resp.Body)
+			return nil, fmt.Errorf("there was an error while downloading package %v\n\n" +
+				"response code: %v\nresponse body: %v", foodPackage.URL, resp.StatusCode, string(respBody))
 		}
 
 		h := sha256.New()
